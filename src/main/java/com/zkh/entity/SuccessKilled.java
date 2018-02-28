@@ -4,9 +4,16 @@ import java.util.Date;
 
 public class SuccessKilled {
 
-    private int seckillId;
+    private long seckillId;
 
-    private int userPhone;
+    /**
+     * 这里数据库中类型是long，在定义POJO的时候要定义为String类型
+
+     因为如过定义为long的话，它去查询的时候会默认给你转换为科学记数法
+
+     所以就会报如上的错误了。
+     */
+    private String userPhone;
 
     private short state;
 
@@ -17,7 +24,7 @@ public class SuccessKilled {
     //有多对一的情况，多条秒杀成功的记录对应一条seckill实体
     private Seckill seckill;
 
-    public int getSeckillId() {
+    public long getSeckillId() {
         return seckillId;
     }
 
@@ -25,11 +32,11 @@ public class SuccessKilled {
         this.seckillId = seckillId;
     }
 
-    public int getUserPhone() {
+    public String  getUserPhone() {
         return userPhone;
     }
 
-    public void setUserPhone(int userPhone) {
+    public void setUserPhone(String userPhone) {
         this.userPhone = userPhone;
     }
 

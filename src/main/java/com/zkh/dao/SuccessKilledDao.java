@@ -1,6 +1,9 @@
 package com.zkh.dao;
 
 import com.zkh.entity.SuccessKilled;
+import org.apache.ibatis.annotations.Param;
+
+import javax.annotation.Resource;
 
 public interface SuccessKilledDao {
 
@@ -10,7 +13,7 @@ public interface SuccessKilledDao {
      * @param userPhone
      * @return
      */
-    int insertSuccessKilled(long seckillId, long userPhone);
+    int insertSuccessKilled(@Param("seckillId") long seckillId,@Param("userPhone") long userPhone);
 
 
     /**
@@ -18,6 +21,7 @@ public interface SuccessKilledDao {
      * @param seckillId
      * @return
      */
-    SuccessKilled querySuccessKillWithSeckill(long seckillId);
+    SuccessKilled querySuccessKillWithSeckill(@Param("seckillId") long seckillId, @Param("userPhone")long userPhone);
+
 
 }
