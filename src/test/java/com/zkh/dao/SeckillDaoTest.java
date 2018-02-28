@@ -10,6 +10,10 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.annotation.Resource;
 
+import java.security.SecureClassLoader;
+import java.util.Date;
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 
@@ -34,10 +38,26 @@ public class SeckillDaoTest {
 
     @Test
     public void queryAll() throws Exception {
+        /**
+         * Caused by: org.apache.ibatis.binding.BindingException: Parameter 'offset' not found. Available parameters are [0, 1, param1, param2]
+         *  List<Seckill> queryAll(long offset, long limit);
+         *  java没有保存形参的记录  queryAll(long offset, long limit)--->queryAll(arg0, arg1)
+         *  用mybatis提供的@param注解来帮助mybatis记录参数的含义。写在SeckillDao的接口参数表上
+         */
+        List<Seckill> seckillList=seckillDao.queryAll(0,100);
+        for (Seckill seckill:seckillList){
+            System.out.println(seckill);
+        }
     }
 
     @Test
     public void reduceNumber() throws Exception {
+        /**
+         * 同样这里的两个参数也需要用mybatis  @param的注解来记录参数含义，以便mybatis识别
+         */
+        Date killTime=new Date();
+        int updateCount=seckillDao.reduceNumber(1000L,killTime);
+        System.out.println(updateCount);
     }
 
 

@@ -1,6 +1,7 @@
 package com.zkh.dao;
 
 import com.zkh.entity.Seckill;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.Date;
 import java.util.List;
@@ -12,7 +13,7 @@ public interface SeckillDao {
      * @param killedTime
      * @return
      */
-    int reduceNumber(long seckillId, Date killedTime);
+    int reduceNumber(@Param("seckillId") long seckillId,@Param("killedTime") Date killedTime);
 
 
     /**
@@ -28,7 +29,7 @@ public interface SeckillDao {
      * @param limit
      * @return
      */
-    List<Seckill> queryAll(long offset, long limit);
+    List<Seckill> queryAll(@Param("offset") long offset,@Param("limit") long limit);
 
     /**
      * 添加记录
