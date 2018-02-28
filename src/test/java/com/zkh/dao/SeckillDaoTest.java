@@ -20,7 +20,7 @@ import static org.junit.Assert.*;
 @RunWith(SpringJUnit4ClassRunner.class)
 //告诉junit  spring的配置
 @ContextConfiguration(locations = {"classpath:spring/spring-dao.xml"})
-class SeckillDaoTest {
+public class SeckillDaoTest {
     //注入Dao实现类依赖
     @Resource
     private SeckillDao seckillDao;

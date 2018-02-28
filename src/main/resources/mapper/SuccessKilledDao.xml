@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.com.zkh.dao.SuccessKilledDao">
+<mapper namespace="com.zkh.dao.SuccessKilledDao">
 
     <insert id="insertSuccessKilled">
         <!-- 若重复,即主键冲突，则会报错，加上ignore则会忽略报错，返回影响0行 -->

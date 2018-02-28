@@ -6,7 +6,7 @@
     <!--配置全局属性-->
     <settings>
         <!--使用jdbc的getGeneratedKeys获取数据库自增主键值-->
-        <setting name="useGenetatedKeys" value="true"/>
+        <setting name="useGeneratedKeys" value="true"/>
         <!--使用列别名替代列名
         好比sql语句中  select name as title from table，即表中列名name，与实体类列名title对应
         -->
