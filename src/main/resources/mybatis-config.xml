@@ -7,14 +7,12 @@
     <settings>
         <!--使用jdbc的getGeneratedKeys获取数据库自增主键值-->
         <setting name="useGeneratedKeys" value="true"/>
-        <!--使用列别名替代列名
-        好比sql语句中  select name as title from table，即表中列名name，与实体类列名title对应
-        -->
+
+        <!--使用列别名替代列名：好比sql语句中  select name as title from table，即表中列名name，与实体类列名title对应-->
         <setting name="useColumnLabel" value="true"/>
 
         <!--开启驼峰命名转换:  Table(create_time) -> Entity(createTime) -->
         <setting name="mapUnderscoreToCamelCase" value="true"/>
-
 
 
     </settings>
