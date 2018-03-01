@@ -1,6 +1,7 @@
 package com.zkh.service;
 
 import com.zkh.dto.Exposer;
+import com.zkh.dto.SeckillExecution;
 import com.zkh.entity.Seckill;
 import com.zkh.excepetion.RepeatKillException;
 import com.zkh.excepetion.SeckillCloseException;
@@ -44,5 +45,5 @@ public interface SeckillService {
      * @param userPhone
      * @param md5
      */
-    void excuteSeckill(long seckillId, long userPhone,String md5) throws SeckillException,RepeatKillException,SeckillCloseException;
+    SeckillExecution excuteSeckill(long seckillId, long userPhone, String md5) throws SeckillException,RepeatKillException,SeckillCloseException;
 }
