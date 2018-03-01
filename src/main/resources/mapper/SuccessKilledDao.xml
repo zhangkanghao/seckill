@@ -6,7 +6,7 @@
 
     <insert id="insertSuccessKilled">
         <!-- 若重复,即主键冲突，则会报错，加上ignore则会忽略报错，返回影响0行 -->
-        INSERT INTO
+        INSERT IGNORE INTO
           success_killed(seckill_id,user_phone,state)
         VALUES (#{seckillId},#{userPhone},0)
     </insert>
