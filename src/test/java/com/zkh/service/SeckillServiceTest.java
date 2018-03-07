@@ -1,10 +1,10 @@
 package com.zkh.service;
 
-import com.mysql.jdbc.log.LogFactory;
-import com.mysql.jdbc.log.Slf4JLogger;
 import com.zkh.dto.Exposer;
 import com.zkh.dto.SeckillExecution;
 import com.zkh.entity.Seckill;
+import com.zkh.excepetion.RepeatKillException;
+import com.zkh.excepetion.SeckillCloseException;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -45,19 +45,24 @@ public class SeckillServiceTest {
     }
 
     @Test
-    public void exportSeckillUrl() throws Exception {
-        long id=1000;
-        Exposer exposer=seckillService.exportSeckillUrl(id);
-        logger.info("exposer={}",exposer);
-    }
-
-    @Test
-    public void excuteSeckill() throws Exception {
+    public void testSeckillService() throws Exception {
         long id=1000;
         long phone=12345678921L;
-        String md5="6f9d49c50f16a543f917a8d055275f83";
-        SeckillExecution seckillExecution=seckillService.excuteSeckill(id,phone,md5);
-        logger.info("seckillExcution={}",seckillExecution);
+        Exposer exposer=seckillService.exportSeckillUrl(id);
+        if(exposer.isExposed()) {
+            logger.info("exposer={}",exposer);
+            String md5 = exposer.getMd5();
+            try {
+                SeckillExecution seckillExecution = seckillService.excuteSeckill(id, phone, md5);
+                logger.info("seckillExcution={}", seckillExecution);
+            } catch (RepeatKillException e) {
+                logger.error("exposer={}",exposer);
+            } catch (SeckillCloseException e) {
+                logger.error("exposer={}",exposer );
+            }
+        }else {
+            logger.warn("exposer={}",exposer);
+        }
     }
 
 }
