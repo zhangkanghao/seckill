@@ -4,7 +4,7 @@
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="goodsManager" />
+          <element id="module-output" name="seckill" />
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: junit:junit:4.12" />
@@ -39,7 +39,7 @@
       <element id="directory" name="META-INF">
         <element id="file-copy" path="$PROJECT_DIR$/target/goodsManager/META-INF/MANIFEST.MF" />
       </element>
-      <element id="javaee-facet-resources" facet="goodsManager/web/Web" />
+      <element id="javaee-facet-resources" facet="seckill/web/Web" />
     </root>
   </artifact>
 </component>
