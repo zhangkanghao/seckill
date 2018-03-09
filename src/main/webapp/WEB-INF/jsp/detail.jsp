@@ -12,7 +12,7 @@
             <div class="panel-heading"><h1>${seckill.name}</h1></div>
         </div>
         <div class="panel-body">
-            <h2 class="text-danger">
+            <h2 class="text-danger text-center">
                 <!--显示time图标-->
                 <span class="glyphicon glyphicon-time"></span>
                 <!--展示倒计时-->
@@ -38,7 +38,7 @@
                 </div>
 
                 <div class="modal-footer">
-                    <！--验证信息-->
+                    <!--验证信息-->
                     <span id="killPhoneMessage" class="glyphicon"></span>
                     <button type="button" id="killPhoneBtn" class="btn btn-success">
                         <span class="glyphicon glyphicon-phone"></span>
@@ -60,7 +60,7 @@
 <!--jQuery cookie操作插件-->
 <script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 <!--jQUery countDown 倒计时插件-->
-<script src="https://cdn.bootcss.com/jquery-countdown/2.1.0/jquery.countdown.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery.countdown/2.1.0/jquery.countdown.min.js"></script>
 <!--开始编写交互逻辑-->
 <script src="/resources/script/seckill.js" type="text/javascript"></script>
 <script type="text/javascript">
