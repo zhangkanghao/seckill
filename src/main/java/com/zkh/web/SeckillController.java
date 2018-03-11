@@ -55,7 +55,7 @@ public class SeckillController {
     //ajax接口，返回json
     @RequestMapping(value = "/{seckillId}/exposer",method = RequestMethod.POST,produces = {"application/json;charset=UTF-8"})
     @ResponseBody/*告诉它这是一个json返回类型,springmvc会把它封装成json类型*/
-    public SeckillResult<Exposer> exposer(Long seckillId){
+    public SeckillResult<Exposer> exposer(@PathVariable Long seckillId){
         SeckillResult<Exposer> result;
         try {
             Exposer exposer=seckillService.exportSeckillUrl(seckillId);
@@ -83,14 +83,14 @@ public class SeckillController {
             return new SeckillResult<SeckillExecution>(true,seckillExecution);
         } catch (RepeatKillException e) {
             SeckillExecution execution=new SeckillExecution(seckillId, SeckillStatEnum.REPEAT_KILL);
-            return new SeckillResult<SeckillExecution>(false,execution);
+            return new SeckillResult<SeckillExecution>(true,execution);
         }catch (SeckillCloseException e) {
             SeckillExecution execution=new SeckillExecution(seckillId, SeckillStatEnum.END);
-            return new SeckillResult<SeckillExecution>(false,execution);
+            return new SeckillResult<SeckillExecution>(true,execution);
         }catch (Exception e) {
             logger.error(e.getMessage(),e);
             SeckillExecution execution=new SeckillExecution(seckillId, SeckillStatEnum.INNER_ERROR);
-            return new SeckillResult<SeckillExecution>(false,execution);
+            return new SeckillResult<SeckillExecution>(true,execution);
         }
     }
 
